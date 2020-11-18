@@ -4,23 +4,23 @@
 #define TIME 10000
 
 static uint8_t segments[] = {
-    //FGEDCBA
+    //FGEDCAB
     0b1011111,  // 0
-    0b0000110,  // 1
+    0b0000101,  // 1
     0b0111011,  // 2
     0b0101111,  // 3
-    0b1100110,  // 4
-    0b1101101,  // 5
-    0b1111101,  // 6
+    0b1100101,  // 4
+    0b1101110,  // 5
+    0b1111110,  // 6
     0b0000111,  // 7
     0b1111111,  // 8
     0b1101111,  // 9
     0b1110111,  // A
     0b1111100,  // B
-    0b1011001,  // C
-    0b0111110,  // D
-    0b1111001,  // E
-    0b1110001,  // F
+    0b1011010,  // C
+    0b0111101,  // D
+    0b1111010,  // E
+    0b1110010,  // F
 };
 
 static void init()
@@ -53,7 +53,7 @@ static uint8_t read_input()
 static void set_output(int digit, uint8_t v)
 {
     PORTB = ~(segments[v] << 1);
-    if (digit == 1) {
+    if (digit == 0) {
         PORTB |= _BV(PB0);
         PORTD &= ~_BV(PD6);
     } else {
